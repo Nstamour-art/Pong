@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 window/size/viewport_width=640
 window/size/viewport_height=480
 
+[global_group]
+
+paddles=""
+
 [input]
 
 player_1_move_up={
@@ -68,14 +72,14 @@ project/breakpoints={
 "res://scripts/player.gd": PackedInt32Array(3)
 }
 project/editorState=[{
-"column": 83,
+"column": 0,
 "line": 9,
 "path": "res://scripts/player.gd",
 "type": "file"
 }, {
-"column": 8,
+"column": 57,
 "current": true,
-"line": 16,
+"line": 30,
 "path": "res://scripts/ball.gd",
 "type": "file"
 }]
