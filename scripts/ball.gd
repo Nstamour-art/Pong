@@ -30,13 +30,17 @@ func _physics_process(delta: float) -> void:
         var collider = collision.get_collider()
         
         if collider.is_in_group("paddles"):
-            speed_modifier += SPEED_FACTOR
-            var paddle_shape = collision.get_collider_shape()
-            var paddle_height = paddle_shape.shape.height
-            var relative_y = (global_position.y - collider.global_position.y) / (paddle_height / 2)
+            var normal = collision.get_normal()
             
-            var new_direction = Vector2(-sign(velocity.x), relative_y)
-            velocity = new_direction.normalized() * speed_modifier
-            
+            if abs(normal.x) == 1.0:
+                speed_modifier += SPEED_FACTOR
+                var paddle_shape = collision.get_collider_shape()
+                var paddle_height = paddle_shape.shape.height
+                var relative_y = (global_position.y - collider.global_position.y) / (paddle_height / 2)
+                
+                var new_direction = Vector2(-sign(velocity.x), relative_y)
+                velocity = new_direction.normalized() * speed_modifier
+            else:
+                velocity = velocity.bounce(collision.get_normal()).normalized() * speed_modifier
         else:
             velocity = velocity.bounce(collision.get_normal()).normalized() * speed_modifier

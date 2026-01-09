@@ -61,6 +61,7 @@ virtual_controller/ios/enable_button_y=false
 
 2d_physics/layer_1="World"
 2d_physics/layer_2="Paddles"
+2d_physics/layer_3="Ball"
 
 [rendering]
 
@@ -73,13 +74,13 @@ project/breakpoints={
 }
 project/editorState=[{
 "column": 0,
+"current": true,
 "line": 0,
 "path": "res://scripts/player.gd",
 "type": "file"
 }, {
-"column": 44,
-"current": true,
-"line": 25,
+"column": 96,
+"line": 43,
 "path": "res://scripts/ball.gd",
 "type": "file"
 }, {
