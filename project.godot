@@ -73,13 +73,18 @@ project/breakpoints={
 }
 project/editorState=[{
 "column": 0,
-"line": 9,
+"line": 0,
 "path": "res://scripts/player.gd",
 "type": "file"
 }, {
-"column": 57,
+"column": 44,
 "current": true,
-"line": 30,
+"line": 25,
 "path": "res://scripts/ball.gd",
+"type": "file"
+}, {
+"column": 0,
+"line": 0,
+"path": "res://scripts/main.gd",
 "type": "file"
 }]

@@ -1,29 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://lhamgu607b0u"]
+[gd_scene load_steps=6 format=3 uid="uid://lhamgu607b0u"]
 
+[ext_resource type="Script" uid="uid://c6bgr2xuq0orp" path="res://scripts/main.gd" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://dj8l1hi574h0o" path="res://scenes/player.tscn" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://b60f4b6aaxk3f" path="res://ball.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://b60f4b6aaxk3f" path="res://scenes/ball.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://csjbiq75snm4n" path="res://scenes/detection_zone.tscn" id="3_sugp2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o5qli"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_jyhfs")
 
 [node name="Player" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(16, 241)
+position = Vector2(16, 232)
 
 [node name="Player2" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(606, 236)
+position = Vector2(624, 224)
 player = "player_2"
 
-[node name="Wall2" type="StaticBody2D" parent="."]
-position = Vector2(0, 479)
+[node name="Ceiling" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
+rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_o5qli")
 
-[node name="Wall3" type="StaticBody2D" parent="."]
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(0, 479)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
-rotation = 3.14159
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 shape = SubResource("WorldBoundaryShape2D_o5qli")
 
 [node name="Ball" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("2_0wfyh")]
@@ -33,3 +36,17 @@ marker = NodePath("../Marker2D")
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(320, 232)
 gizmo_extents = 9.9
+
+[node name="Player1Zone" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(-24, 0)
+
+[node name="Player2Zone" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(664, 4.54747e-13)
+rotation = 3.14159
+
+[connection signal="area_entered" from="Player1Zone" to="." method="_on_player_1_zone_area_entered"]
+[connection signal="body_entered" from="Player1Zone" to="." method="_on_player_1_zone_body_entered"]
+[connection signal="body_exited" from="Player1Zone" to="." method="_on_player_1_zone_body_exited"]
+[connection signal="area_entered" from="Player2Zone" to="." method="_on_player_2_zone_area_entered"]
+[connection signal="body_entered" from="Player2Zone" to="." method="_on_player_2_zone_body_entered"]
+[connection signal="body_exited" from="Player2Zone" to="." method="_on_player_2_zone_body_exited"]
