@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=640
 window/size/viewport_height=480
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
 
 [global_group]
 
@@ -79,8 +81,8 @@ project/editorState=[{
 "path": "res://scripts/player.gd",
 "type": "file"
 }, {
-"column": 96,
-"line": 43,
+"column": 0,
+"line": 37,
 "path": "res://scripts/ball.gd",
 "type": "file"
 }, {

@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-@export var SPEED = 300.0
-@export var SPEED_FACTOR = 50.0
+@export var SPEED := 300.0
+@export var SPEED_FACTOR := 50.0
 @export var marker: Marker2D
 var speed_modifier = SPEED
 
