@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Pong"
 run/main_scene="res://scenes/main.tscn"
-config/features=PackedStringArray("4.6", "Mobile")
+config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
@@ -79,19 +79,19 @@ project/breakpoints={
 "res://scripts/player.gd": PackedInt32Array(3)
 }
 project/editorState=[{
-"column": 0,
+"column": 38,
 "current": true,
-"line": 0,
+"line": 8,
 "path": "res://scripts/player.gd",
 "type": "file"
 }, {
 "column": 0,
-"line": 37,
+"line": 0,
 "path": "res://scripts/ball.gd",
 "type": "file"
 }, {
 "column": 0,
-"line": 0,
+"line": 37,
 "path": "res://scripts/main.gd",
 "type": "file"
 }]

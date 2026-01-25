@@ -34,4 +34,6 @@ func reset() -> void:
     $Ball.reset_ball()
 
 func update_score() -> void:
-    PLAYER_SCORE_COUNTER.text = str(PLAYER_SCORE).pad_zeros(5)
+    var formatted_player_score = str(PLAYER_SCORE).pad_zeros(5)
+    if PLAYER_SCORE_COUNTER.text != formatted_player_score:
+        PLAYER_SCORE_COUNTER.text = formatted_player_score

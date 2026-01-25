@@ -5,8 +5,8 @@ const SPEED = 300.0
 @export var player: String = "player_1"
 @export var ball: Node2D
 
-@export_range(0.0, 1.0) var difficulty: float = 0.1
-@export var max_error_margin: float = 200.0
+@export_range(0.0, 1.0) var difficulty: float = 0.5
+@export var max_error_margin: float = 100.0
 
 var future_y: float = 0.0
 var frame_count = 0
@@ -68,7 +68,6 @@ func get_predicted_y_with_physics(ball_local: Node2D) -> float:
     var current_pos := ball_local.global_position
     var direction: Vector2 = ball_local.velocity.normalized()
     
-    debug_points.append(current_pos)
     # We will loop to simulate bounces (max 3 bounces to prevent infinite loops)
     for i in range(3):
         # 2. Setup the Ray

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://lhamgu607b0u"]
+[gd_scene load_steps=7 format=3 uid="uid://lhamgu607b0u"]
 
 [ext_resource type="Script" uid="uid://c6bgr2xuq0orp" path="res://scripts/main.gd" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://dj8l1hi574h0o" path="res://scenes/player.tscn" id="1_o5qli"]
@@ -8,48 +8,47 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o5qli"]
 
-[node name="Node2D" type="Node2D" unique_id=1007010883 node_paths=PackedStringArray("PLAYER_SCORE_COUNTER")]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("PLAYER_SCORE_COUNTER")]
 script = ExtResource("1_jyhfs")
 PLAYER_SCORE_COUNTER = NodePath("UI/ScoreLabel")
 
-[node name="Player" parent="." unique_id=1848915285 instance=ExtResource("1_o5qli")]
+[node name="Player" parent="." instance=ExtResource("1_o5qli")]
 position = Vector2(16, 232)
 
-[node name="Player2" parent="." unique_id=1971708909 node_paths=PackedStringArray("ball") instance=ExtResource("1_o5qli")]
-position = Vector2(624, 224.00002)
+[node name="Player2" parent="." node_paths=PackedStringArray("ball") instance=ExtResource("1_o5qli")]
+position = Vector2(624, 224)
 player = "computer"
 ball = NodePath("../Ball")
 
-[node name="Ceiling" type="StaticBody2D" parent="." unique_id=271561184]
+[node name="Ceiling" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling" unique_id=1796883866]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
 rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_o5qli")
 
-[node name="Floor" type="StaticBody2D" parent="." unique_id=1273241208]
+[node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 479)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1740539546]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 shape = SubResource("WorldBoundaryShape2D_o5qli")
 
-[node name="Ball" parent="." unique_id=754890942 node_paths=PackedStringArray("marker") instance=ExtResource("2_0wfyh")]
+[node name="Ball" parent="." node_paths=PackedStringArray("marker") instance=ExtResource("2_0wfyh")]
 position = Vector2(310, 233)
 marker = NodePath("../Marker2D")
 
-[node name="Marker2D" type="Marker2D" parent="." unique_id=159861509]
+[node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(320, 232)
 gizmo_extents = 9.9
 
-[node name="Player1Zone" parent="." unique_id=812887423 instance=ExtResource("3_sugp2")]
+[node name="Player1Zone" parent="." instance=ExtResource("3_sugp2")]
 position = Vector2(-24, 0)
 
-[node name="Player2Zone" parent="." unique_id=388054275 instance=ExtResource("3_sugp2")]
+[node name="Player2Zone" parent="." instance=ExtResource("3_sugp2")]
 position = Vector2(664, 4.54747e-13)
 rotation = 3.14159
 
-[node name="UI" parent="." unique_id=1406119440 instance=ExtResource("5_tbgi4")]
+[node name="UI" parent="." instance=ExtResource("5_tbgi4")]
 
-[connection signal="player_scored" from="." to="Player2" method="_on_node_2d_player_scored"]
 [connection signal="body_entered" from="Player1Zone" to="." method="_on_player_1_zone_body_entered"]
 [connection signal="body_entered" from="Player2Zone" to="." method="_on_player_2_zone_body_entered"]
 
